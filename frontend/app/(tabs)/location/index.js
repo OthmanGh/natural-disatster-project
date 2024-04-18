@@ -2,7 +2,7 @@ import { Text, View, TouchableOpacity, ScrollView, Button, Image, StyleSheet } f
 import { EvilIcons } from '@expo/vector-icons';
 import { useRouter } from 'expo-router';
 
-export default function Products() {
+export default function Location() {
   const router = useRouter();
 
   const CustomButton = ({ title, onPress }) => {
@@ -59,6 +59,4 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
     textAlign: 'center',
   },
-
-  ping_image: {},
 });
