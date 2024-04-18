@@ -29,8 +29,8 @@ export default function Products() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    justifyContent: 'center', // Center horizontally
-    alignItems: 'center', // Center vertically
+    justifyContent: 'center',
+    alignItems: 'center',
     gap: '20px',
     padding: '10px',
   },
