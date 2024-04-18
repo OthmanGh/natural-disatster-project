@@ -36,4 +36,10 @@ class DangerZoneController extends Controller
         DangerZone::findOrFail($id)->delete();
         return response()->json(null, 204);
     }
+
+    public function calculateDistance(Request $request)
+    {
+        $distance = sqrt(pow($request->long2 - $request->long1, 2) + pow($request->lat2 - $request->lat1, 2));
+        return response()->json($distance);
+    }
 }
