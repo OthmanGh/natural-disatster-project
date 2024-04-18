@@ -1,14 +1,64 @@
-import { Text, View, ScrollView, Button, StyleSheet } from 'react-native';
+import { Text, View, TouchableOpacity, ScrollView, Button, Image, StyleSheet } from 'react-native';
+import { EvilIcons } from '@expo/vector-icons';
 import { useRouter } from 'expo-router';
 
 export default function Products() {
   const router = useRouter();
 
+  const CustomButton = ({ title, onPress }) => {
+    return (
+      <TouchableOpacity onPress={onPress} style={styles.button}>
+        <Text style={styles.buttonText}>{title}</Text>
+      </TouchableOpacity>
+    );
+  };
+
   return (
-    <View>
-      <Text></Text>
+    <View style={styles.container}>
+      <EvilIcons name="location" size={64} color="red" />
+      <Text style={styles.title_text}>Location Required</Text>
+      <Text style={styles.para_text}>To ensure your safety during emergencies our app requires locatin acess</Text>
+      <CustomButton title="Allow Location" onPress={() => {}} />
+      <Text style={styles.not_now} onPress={() => {}}>
+        Not Now
+      </Text>
     </View>
   );
 }
 
-const styles = StyleSheet.create({});
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    justifyContent: 'center', // Center horizontally
+    alignItems: 'center', // Center vertically
+    gap: '20px',
+    padding: '10px',
+  },
+
+  title_text: {
+    fontSize: '24px',
+    fontWeight: 'bold',
+  },
+
+  para_text: {
+    fontSize: '18px',
+    textAlign: 'center',
+    width: '85%',
+    fontWeight: '500',
+  },
+
+  button: {
+    backgroundColor: 'red',
+    padding: 10,
+    borderRadius: 5,
+    width: '80%',
+  },
+  buttonText: {
+    color: 'white',
+    fontSize: 16,
+    fontWeight: 'bold',
+    textAlign: 'center',
+  },
+
+  ping_image: {},
+});
