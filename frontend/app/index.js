@@ -1,10 +1,3 @@
-<<<<<<< HEAD
-import { Redirect } from 'expo-router';
-
-export default function Index() {
-  return <Redirect href={'/(tabs)/location'} />;
-}
-=======
 import { StyleSheet, Text, View } from "react-native";
 import Maps from "../components/maps";
 
@@ -40,4 +33,3 @@ const styles = StyleSheet.create({
     color: "#38434D",
   },
 });
->>>>>>> 95d582054d2172556fc9280fe9c6bce55cf341ea
