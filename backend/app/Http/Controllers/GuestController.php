@@ -2,6 +2,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Guest;
+use App\Models\Location;
 use Illuminate\Http\Request;
 
 class GuestController extends Controller
@@ -14,15 +15,39 @@ class GuestController extends Controller
 
     public function store(Request $request)
     {
-        $guest = Guest::create($request->all());
+        $latitude = $request->input('lat');
+        $longitude = $request->input('long');
+        $uniqueIdentifier = $request->input('unique_identifier');
+        $email = $request->input('email');
+
+        $location = Location::create([
+            'latitude' => $latitude,
+            'longitude' => $longitude,
+        ]);
+
+        $locationId = $location->id;
+
+        $guest = Guest::create([
+            'location_id' => $locationId,
+            'unique_identifier' => $uniqueIdentifier,
+            'email' => $email,
+        ]);
+
         return response()->json($guest, 201);
     }
 
-    public function show($id)
+    public function show(Request $request)
     {
-        $guest = Guest::findOrFail($id);
-        return response()->json($guest);
+        $uniqueIdentifier = $request->input('unique_identifier');
+        $guest = Guest::where('unique_identifier', $uniqueIdentifier)->first();
+    
+        if (!$guest) {
+            return response()->json(['message' => 'Guest not found'], 404);
+        }
+    
+        return response()->json($guest, 200);
     }
+    
 
     public function update(Request $request, $id)
     {
