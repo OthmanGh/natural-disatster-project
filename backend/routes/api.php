@@ -2,12 +2,16 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+<<<<<<< HEAD
+use App\Http\Controllers\EmailController;
+=======
 use App\Http\Controllers\GuestController;
 use App\Http\Controllers\LocationController;
 use App\Http\Controllers\NaturalDisasterController;
 use App\Http\Controllers\AlertController;
 use App\Http\Controllers\ShelterController;
 use App\Http\Controllers\DangerZoneController;
+>>>>>>> 9ac8b95c2845ef59be26289477c3f4c1e3f2988f
 
 Route::get('/guests', [GuestController::class, 'index']);
 Route::post('/guests', [GuestController::class, 'store']);
@@ -15,6 +19,14 @@ Route::get('/guests/{id}', [GuestController::class, 'show']);
 Route::put('/guests/{id}', [GuestController::class, 'update']);
 Route::delete('/guests/{id}', [GuestController::class, 'destroy']);
 
+<<<<<<< HEAD
+Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
+    return $request->user();
+});
+
+
+Route::get('/send-welcome-email', [EmailController::class, 'sendWelcomeEmail']);
+=======
 Route::get('/locations', [LocationController::class, 'index']);
 Route::post('/locations', [LocationController::class, 'store']);
 Route::get('/locations/{id}', [LocationController::class, 'show']);
@@ -44,3 +56,4 @@ Route::post('/danger-zones', [DangerZoneController::class, 'store']);
 Route::get('/danger-zones/{id}', [DangerZoneController::class, 'show']);
 Route::put('/danger-zones/{id}', [DangerZoneController::class, 'update']);
 Route::delete('/danger-zones/{id}', [DangerZoneController::class, 'destroy']);
+>>>>>>> 9ac8b95c2845ef59be26289477c3f4c1e3f2988f
